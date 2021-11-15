@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/gabrielrufino/infinite-monkey.js/issues"
   },
-  "homepage": "https://github.com/gabrielrufino/infinite-monkey.js#readme"
+  "homepage": "https://github.com/gabrielrufino/infinite-monkey.js#readme",
+  "devDependencies": {
+    "standard": "^16.0.4"
+  }
 }
