@@ -2,12 +2,23 @@
 
 'use strict'
 
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
+
 async function main () {
-  const [,, text] = process.argv
+  const args = yargs(hideBin(process.argv))
+    .command('type [text]', 'Make the monkey type madly')
+    .option('monkeys', {
+      alias: 'm',
+      type: 'number',
+      description: 'Number of monkeys'
+    })
+    .parse()
+
   let input = ''
   let charactersCount = 0
 
-  while (!input.includes(text)) {
+  while (!input.includes(args.text)) {
     const character = String.fromCharCode(
       Math.floor(Math.random() * 128)
     )
@@ -20,7 +31,7 @@ async function main () {
     charactersCount++
   }
 
-  console.log(text, input, charactersCount)
+  console.log(args.text, input, charactersCount)
 }
 
 main()
