@@ -20,7 +20,7 @@ async function main () {
       })
       .parse()
 
-    const monkeys = Array(args.monkeys)
+    Array(args.monkeys)
       .fill(undefined)
       .map((_, index) => new Worker(import.meta.url.replace('file://', ''), {
         workerData: {
@@ -28,13 +28,12 @@ async function main () {
           text: args.text
         }
       }))
-
-    monkeys.forEach(monkey => {
-      monkey.on('message', result => {
-        console.log(result)
-        process.exit(0)
+      .forEach(monkey => {
+        monkey.on('message', result => {
+          console.log(result)
+          process.exit(0)
+        })
       })
-    })
   } else {
     const { id, text } = workerData
 
