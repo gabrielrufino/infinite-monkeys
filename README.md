@@ -3,5 +3,5 @@
 ### Getting started
 
 ```
-im Hey --monkeys 2
+im type Hey --monkeys 2
 ```

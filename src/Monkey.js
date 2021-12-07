@@ -1,13 +1,16 @@
 'use strict'
 
+import EventEmitter from 'events'
+
 import { generateCharacter } from './helpers/index.js'
 
-export default class Monkey {
-  constructor ({ id, text, onUpdate, onMatch }) {
+export default class Monkey extends EventEmitter {
+  constructor ({ id, text, onUpdate }) {
+    super()
+
     this.id = id
     this.text = text
     this.onUpdate = onUpdate
-    this.onMatch = onMatch
     this.count = 0
   }
 
@@ -25,7 +28,7 @@ export default class Monkey {
       this.count++
     }
 
-    this.onMatch({
+    this.emit('match', {
       input,
       count: this.count
     })

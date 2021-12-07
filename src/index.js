@@ -39,14 +39,15 @@ async function main () {
 
     const monkey = new Monkey({
       id,
-      text,
-      onUpdate: () => {},
-      onMatch: ({ input, count }) => {
-        parentPort.postMessage({
-          input,
-          charactersCount: count
-        })
-      }
+      text
+    })
+
+    monkey.on('update', () => {})
+    monkey.on('match', ({ input, count }) => {
+      parentPort.postMessage({
+        input,
+        charactersCount: count
+      })
     })
 
     monkey.type()
