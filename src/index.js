@@ -4,7 +4,7 @@
 
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { Worker, isMainThread, parentPort, workerData } from 'worker_threads'
+import { Worker, isMainThread, workerData } from 'worker_threads'
 
 import Monkey from './Monkey.js'
 import MonkeyListeners from './MonkeyListeners.js'
