@@ -8,6 +8,7 @@ import { Worker, isMainThread, parentPort, workerData } from 'worker_threads'
 
 import Monkey from './Monkey.js'
 import MonkeyListeners from './MonkeyListeners.js'
+import WorkerListeners from './WorkerListeners.js'
 
 async function main () {
   if (isMainThread) {
@@ -30,9 +31,8 @@ async function main () {
         }
       }))
       .forEach(monkey => {
-        monkey.on('message', result => {
-          console.log(result)
-          process.exit(0)
+        monkey.on('message', event => {
+          WorkerListeners[event.type](event)
         })
       })
   } else {
