@@ -7,6 +7,7 @@ import { hideBin } from 'yargs/helpers'
 import { Worker, isMainThread, parentPort, workerData } from 'worker_threads'
 
 import Monkey from './Monkey.js'
+import MonkeyListeners from './MonkeyListeners.js'
 
 async function main () {
   if (isMainThread) {
@@ -42,13 +43,8 @@ async function main () {
       text
     })
 
-    monkey.on('update', () => {})
-    monkey.on('match', ({ input, count }) => {
-      parentPort.postMessage({
-        input,
-        charactersCount: count
-      })
-    })
+    monkey.on('update', MonkeyListeners.update)
+    monkey.on('match', MonkeyListeners.match)
 
     monkey.type()
   }
