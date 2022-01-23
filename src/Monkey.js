@@ -5,12 +5,11 @@ import EventEmitter from 'events'
 import { generateCharacter } from './helpers/index.js'
 
 export default class Monkey extends EventEmitter {
-  constructor ({ id, text, onUpdate }) {
+  constructor ({ id, text }) {
     super()
 
     this.id = id
     this.text = text
-    this.onUpdate = onUpdate
     this.count = 0
   }
 
