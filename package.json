@@ -22,11 +22,11 @@
   },
   "homepage": "https://github.com/gabrielrufino/infinite-monkey.js#readme",
   "devDependencies": {
-    "@types/node": "^16.11.11",
-    "@types/yargs": "^17.0.7",
+    "@types/node": "^16.11.22",
+    "@types/yargs": "^17.0.8",
     "standard": "^16.0.4"
   },
   "dependencies": {
-    "yargs": "^17.3.0"
+    "yargs": "^17.3.1"
   }
 }

@@ -4,9 +4,11 @@
 
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
-import { Worker, isMainThread, parentPort, workerData } from 'worker_threads'
+import { Worker, isMainThread, workerData } from 'worker_threads'
 
 import Monkey from './Monkey.js'
+import MonkeyListeners from './MonkeyListeners.js'
+import WorkerListeners from './WorkerListeners.js'
 
 async function main () {
   if (isMainThread) {
@@ -29,9 +31,8 @@ async function main () {
         }
       }))
       .forEach(monkey => {
-        monkey.on('message', result => {
-          console.log(result)
-          process.exit(0)
+        monkey.on('message', event => {
+          WorkerListeners[event.type](event)
         })
       })
   } else {
@@ -42,13 +43,8 @@ async function main () {
       text
     })
 
-    monkey.on('update', () => {})
-    monkey.on('match', ({ input, count }) => {
-      parentPort.postMessage({
-        input,
-        charactersCount: count
-      })
-    })
+    monkey.on('update', MonkeyListeners.update)
+    monkey.on('match', MonkeyListeners.match)
 
     monkey.type()
   }
