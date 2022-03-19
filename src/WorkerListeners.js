@@ -1,5 +1,3 @@
-'use strict'
-
 export default class WorkerListeners {
   static match (event) {
     console.log(event)

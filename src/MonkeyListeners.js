@@ -1,5 +1,3 @@
-'use strict'
-
 import { parentPort } from 'worker_threads'
 
 export default class MonkeyListeners {

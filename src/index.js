@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-'use strict'
-
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 import { Worker, isMainThread, workerData } from 'worker_threads'
