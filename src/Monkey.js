@@ -6,8 +6,6 @@ export default class Monkey extends EventEmitter {
   constructor ({ id, text }) {
     super()
 
-    console.log('test')
-
     this.id = id
     this.text = text
     this.count = 0
