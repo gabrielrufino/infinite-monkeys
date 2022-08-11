@@ -1,9 +1,7 @@
-'use strict'
-
 import { parentPort } from 'worker_threads'
 
 export default class MonkeyListeners {
-  static match({ input, count }) {
+  static match ({ input, count }) {
     parentPort.postMessage({
       type: MonkeyListeners.match.name,
       input,
@@ -11,7 +9,7 @@ export default class MonkeyListeners {
     })
   }
 
-  static update(_event) {
+  static update (_event) {
     parentPort.postMessage({
       type: MonkeyListeners.update.name
     })
