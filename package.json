@@ -30,6 +30,6 @@
     "standard": "^16.0.4"
   },
   "dependencies": {
-    "yargs": "^17.5.1"
+    "yargs": "^17.7.2"
   }
 }
