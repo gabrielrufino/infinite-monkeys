@@ -4,8 +4,8 @@ on:
   - push
 
 jobs:
-  lint:
-    name: Lint
+  node-ci:
+    name: Node CI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
