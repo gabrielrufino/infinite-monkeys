@@ -1,0 +1,26 @@
+name: Infinite Monkey
+
+on:
+  - workflow_dispatch
+
+inputs:
+  text:
+    description: 'Text for the monkeys'
+    required: true
+  monkeys:
+    description: 'Number of monkeys'
+    required: false
+    default: '1'
+
+jobs:
+  execute:
+    name: Execute
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm link
+      - run: im type ${{ inputs.text }} --monkeys ${{ inputs.monkeys }}
