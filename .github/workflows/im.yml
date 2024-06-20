@@ -1,16 +1,15 @@
 name: Infinite Monkey
 
 on:
-  - workflow_dispatch
-
-inputs:
-  text:
-    description: 'Text for the monkeys'
-    required: true
-  monkeys:
-    description: 'Number of monkeys'
-    required: false
-    default: '1'
+  workflow_dispatch:
+    inputs:
+      text:
+        description: 'Text for the monkeys'
+        required: true
+      monkeys:
+        description: 'Number of monkeys'
+        required: false
+        default: '1'
 
 jobs:
   execute:
