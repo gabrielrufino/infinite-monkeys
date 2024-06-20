@@ -14,7 +14,7 @@ export default class Monkey extends EventEmitter {
   type () {
     let input = ''
 
-    while (!input.includes(this.text)) {
+    while (!input.endsWith(this.text)) {
       const character = generateCharacter()
       input += character
 
