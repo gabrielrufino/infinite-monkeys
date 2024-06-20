@@ -1,6 +1,6 @@
 import EventEmitter from 'events'
 
-import { generateCharacter } from './helpers/index.js'
+import { faker } from '@faker-js/faker'
 
 export default class Monkey extends EventEmitter {
   constructor ({ id, text }) {
@@ -14,8 +14,8 @@ export default class Monkey extends EventEmitter {
   type () {
     let input = ''
 
-    while (!input.includes(this.text)) {
-      const character = generateCharacter()
+    while (!input.endsWith(this.text)) {
+      const character = faker.string.alpha()
       input += character
 
       if (input.length > 10000) {

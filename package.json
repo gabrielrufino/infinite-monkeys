@@ -10,7 +10,7 @@
   "scripts": {
     "lint": "standard",
     "lint:fix": "npm run lint -- --fix",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "standard": "^16.0.4"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
     "yargs": "^17.7.2"
   }
 }
