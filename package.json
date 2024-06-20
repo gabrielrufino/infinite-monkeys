@@ -28,6 +28,7 @@
     "standard": "^16.0.4"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
     "yargs": "^17.7.2"
   }
 }
