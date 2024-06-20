@@ -10,7 +10,7 @@
   "scripts": {
     "lint": "standard",
     "lint:fix": "npm run lint -- --fix",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests"
   },
   "repository": {
     "type": "git",
