@@ -7,7 +7,7 @@
     "im": "src/index.js"
   },
   "scripts": {
-    "lint": "standard",
+    "lint": "eslint",
     "lint:fix": "npm run lint -- --fix",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
     "prepare": "husky"
@@ -25,10 +25,12 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/js": "^9.5.0",
     "cross-env": "^7.0.3",
+    "eslint": "^9.5.0",
+    "globals": "^15.6.0",
     "husky": "^9.0.11",
-    "jest": "^27.5.1",
-    "standard": "^16.0.4"
+    "jest": "^27.5.1"
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
