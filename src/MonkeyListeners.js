@@ -8,10 +8,4 @@ export default class MonkeyListeners {
       charactersCount: count
     })
   }
-
-  static update (_event) {
-    parentPort.postMessage({
-      type: MonkeyListeners.update.name
-    })
-  }
 }
