@@ -10,7 +10,6 @@ const monkey = new Monkey({
   text
 })
 
-monkey.on('update', MonkeyListeners.update)
 monkey.on('match', MonkeyListeners.match)
 
 monkey.type()
