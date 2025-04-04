@@ -1,6 +1,6 @@
 {
-  "name": "@gabrielrufino/infinite-monkey",
-  "version": "1.0.1",
+  "name": "@gabrielrufino/infinite-monkeys",
+  "version": "1.0.2",
   "type": "module",
   "main": "src/index.js",
   "bin": {
@@ -23,13 +23,13 @@
   },
   "homepage": "https://github.com/gabrielrufino/infinite-monkey.js#readme",
   "devDependencies": {
-    "@commitlint/cli": "^19.4.1",
-    "@commitlint/config-conventional": "^19.4.1",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@eslint/js": "^9.5.0",
     "cross-env": "^7.0.3",
-    "eslint": "^9.10.0",
-    "globals": "^15.9.0",
-    "husky": "^9.1.5",
+    "eslint": "^9.23.0",
+    "globals": "^15.15.0",
+    "husky": "^9.1.7",
     "jest": "^27.5.1"
   },
   "dependencies": {
