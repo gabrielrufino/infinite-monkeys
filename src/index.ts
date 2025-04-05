@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 import yargs from 'yargs'
-import path from 'path'
+import * as path from 'node:path'
 import { hideBin } from 'yargs/helpers'
 import { Worker } from 'worker_threads'
 
-import WorkerListeners from './WorkerListeners.js'
+import WorkerListeners from './WorkerListeners'
 
 async function main () {
   const args = yargs(hideBin(process.argv))
@@ -18,8 +18,7 @@ async function main () {
     })
     .parse()
 
-  const dirname = path.dirname(new URL(import.meta.url).pathname)
-  const worker = path.join(dirname, 'worker.js')
+  const worker = path.join(__dirname, 'worker.cjs')
 
   Array(args.monkeys)
     .fill(undefined)

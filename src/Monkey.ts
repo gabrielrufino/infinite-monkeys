@@ -1,8 +1,12 @@
-import EventEmitter from 'events'
+import EventEmitter from 'node:events'
 
 import { faker } from '@faker-js/faker'
 
 export default class Monkey extends EventEmitter {
+  private readonly id: number
+  private readonly text: string
+  private count: number
+
   constructor ({ id, text }) {
     super()
 
@@ -26,6 +30,7 @@ export default class Monkey extends EventEmitter {
     }
 
     this.emit('match', {
+      id: this.id,
       input,
       count: this.count
     })

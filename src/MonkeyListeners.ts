@@ -1,4 +1,4 @@
-import { parentPort } from 'worker_threads'
+import { parentPort, isMainThread } from 'node:worker_threads'
 
 export default class MonkeyListeners {
   static match ({ input, count }) {
