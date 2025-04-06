@@ -10,6 +10,8 @@ import { hideBin } from 'yargs/helpers'
 import WorkerListeners from './WorkerListeners'
 
 async function main() {
+  process.title = 'monkeys'
+
   const args = yargs(hideBin(process.argv))
     .option('target', {
       type: 'string',
