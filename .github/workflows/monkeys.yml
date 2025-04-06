@@ -1,12 +1,12 @@
-name: Infinite Monkey
+name: Monkeys
 
 on:
   workflow_dispatch:
     inputs:
-      text:
+      target:
         description: Text for the monkeys
         required: true
-      monkeys:
+      threads:
         description: Number of monkeys
         required: false
         default: '1'
@@ -22,4 +22,5 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm link
-      - run: im type ${{ inputs.text }} --monkeys ${{ inputs.monkeys }}
+      - run: npm run build
+      - run: monkeys --target ${{ inputs.target }} --threads ${{ inputs.threads }}
