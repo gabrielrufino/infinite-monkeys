@@ -1,6 +1,7 @@
 import EventEmitter from 'node:events'
 
 import { faker } from '@faker-js/faker'
+import { keyboard } from './config/keyboard'
 
 export default class Monkey extends EventEmitter {
   private readonly id: number
@@ -8,18 +9,18 @@ export default class Monkey extends EventEmitter {
   private count: number
 
   constructor({ id, text }) {
-    super()
+    super({})
 
     this.id = id
     this.text = text
     this.count = 0
   }
 
-  type() {
+  public type() {
     let input = ''
 
     while (!input.endsWith(this.text)) {
-      const character = faker.string.alpha()
+      const character = faker.string.fromCharacters(keyboard)
       input += character
 
       if (input.length > 10000) {
