@@ -24,5 +24,5 @@ npm link
 
 2. Execute the CLI
 ```sh
-monkeys type "Hello" --threads 4
+monkeys --target "Hello" --threads 4
 ```
