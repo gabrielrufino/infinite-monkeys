@@ -11,13 +11,17 @@ import WorkerListeners from './WorkerListeners'
 
 async function main() {
   const args = yargs(hideBin(process.argv))
-    .command('type [text]', 'Make the monkey type madly')
+    .option('target', {
+      type: 'string',
+      description: 'Target text to type',
+      demmandOption: true,
+    })
     .option('threads', {
-      alias: 't',
       type: 'number',
       description: 'Number of threads',
       default: 1,
     })
+    .help()
     .parse()
 
   const worker = path.join(__dirname, 'worker.cjs')
@@ -26,7 +30,7 @@ async function main() {
     .map((_, index) => new Worker(worker, {
       workerData: {
         id: index + 1,
-        text: args.text,
+        text: args.target,
       },
     }))
     .forEach((monkey) => {
