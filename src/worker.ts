@@ -7,7 +7,7 @@ const { id, text } = workerData
 
 const monkey = new Monkey({
   id,
-  text
+  text,
 })
 
 monkey.on('match', MonkeyListeners.match)

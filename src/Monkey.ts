@@ -7,7 +7,7 @@ export default class Monkey extends EventEmitter {
   private readonly text: string
   private count: number
 
-  constructor ({ id, text }) {
+  constructor({ id, text }) {
     super()
 
     this.id = id
@@ -15,7 +15,7 @@ export default class Monkey extends EventEmitter {
     this.count = 0
   }
 
-  type () {
+  type() {
     let input = ''
 
     while (!input.endsWith(this.text)) {
@@ -32,7 +32,7 @@ export default class Monkey extends EventEmitter {
     this.emit('match', {
       id: this.id,
       input,
-      count: this.count
+      count: this.count,
     })
   }
 }

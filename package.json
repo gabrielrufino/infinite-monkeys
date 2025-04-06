@@ -1,8 +1,10 @@
 {
   "name": "@gabrielrufino/infinite-monkeys",
-  "version": "1.0.2",
-  "main": "dist/index.cjs",
   "type": "module",
+  "version": "1.0.2",
+  "author": "Gabriel Rufino",
+  "license": "UNLICENSED",
+  "main": "dist/index.cjs",
   "bin": {
     "im": "dist/index.cjs"
   },
@@ -13,22 +15,19 @@
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
     "prepare": "husky"
   },
-  "author": "Gabriel Rufino",
-  "license": "UNLICENSED",
-  "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@eslint/js": "^9.5.0",
-    "@types/node": "^22.14.0",
-    "cross-env": "^7.0.3",
-    "eslint": "^9.24.0",
-    "globals": "^15.15.0",
-    "husky": "^9.1.7",
-    "jest": "^27.5.1",
-    "tsup": "^8.4.0"
-  },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.11.0",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@types/node": "^22.14.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.24.0",
+    "husky": "^9.1.7",
+    "jest": "^27.5.1",
+    "tsup": "^8.4.0"
   }
 }

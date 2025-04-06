@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       text:
-        description: 'Text for the monkeys'
+        description: Text for the monkeys
         required: true
       monkeys:
-        description: 'Number of monkeys'
+        description: Number of monkeys
         required: false
         default: '1'
 

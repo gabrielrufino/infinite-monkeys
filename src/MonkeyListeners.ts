@@ -1,10 +1,11 @@
 import { parentPort } from 'node:worker_threads'
+
 export default class MonkeyListeners {
-  static match ({ input, count }) {
+  static match({ input, count }) {
     parentPort.postMessage({
       type: MonkeyListeners.match.name,
       input,
-      charactersCount: count
+      charactersCount: count,
     })
   }
 }
