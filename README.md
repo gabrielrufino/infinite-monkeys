@@ -12,6 +12,17 @@ CLI simulating infinite monkeys
 
 ## Getting started
 
+1. Setup the CLI
+
 ```sh
-im type Hey --monkeys 2
+git clone https://github.com/gabrielrufino/infinite-monkeys.git
+cd infinite-monkeys
+npm ci
+npm run build
+npm link
+```
+
+2. Execute the CLI
+```sh
+monkeys type "Hello" --threads 4
 ```
