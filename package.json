@@ -1,5 +1,6 @@
 {
   "name": "@gabrielrufino/infinite-monkeys",
+  "private": true,
   "type": "module",
   "version": "1.0.2",
   "author": "Gabriel Rufino",
