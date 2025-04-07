@@ -7,7 +7,7 @@ import { Worker } from 'node:worker_threads'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-import WorkerListeners from './WorkerListeners'
+import { logger } from './config/logger'
 
 async function main() {
   process.title = 'monkeys'
@@ -35,9 +35,13 @@ async function main() {
         text: args.target,
       },
     }))
-    .forEach((monkey) => {
-      monkey.on('message', (event) => {
-        WorkerListeners[event.type](event)
+    .forEach((worker) => {
+      worker.on('message', (event) => {
+        logger.info({ ...event })
+
+        if (event.type === 'match') {
+          process.exit(0)
+        }
       })
     })
 }

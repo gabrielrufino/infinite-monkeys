@@ -8,11 +8,10 @@ new Monkey({
   id,
   text,
 })
-  .on('match', ({ input, count }) => {
-    parentPort?.postMessage({
-      type: 'match',
-      input,
-      charactersCount: count,
-    })
+  .on('match', (event) => {
+    parentPort?.postMessage(event)
+  })
+  .on('progress', (event) => {
+    parentPort?.postMessage(event)
   })
   .type()

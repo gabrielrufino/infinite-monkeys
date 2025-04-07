@@ -6,6 +6,8 @@ import { keyboard } from './config/keyboard'
 export default class Monkey extends EventEmitter {
   private readonly id: number
   private readonly text: string
+  private count: number = 0
+  private input: string = ''
 
   constructor(params: {
     id: number
@@ -18,25 +20,31 @@ export default class Monkey extends EventEmitter {
   }
 
   public type() {
-    let count = 0
-    let input = ''
-
-    while (!input.endsWith(this.text)) {
+    while (!this.input.endsWith(this.text)) {
       const character = faker.string.fromCharacters(keyboard)
-      count += 1
+      this.count += 1
 
-      if (input.length > 100) {
-        input = input.slice(1) + character
+      if (this.count % 100000 === 0) {
+        this.notify('progress')
+      }
+
+      if (this.input.length > 100) {
+        this.input = this.input.slice(1) + character
         continue
       }
 
-      input += character
+      this.input += character
     }
 
-    this.emit('match', {
+    this.notify('match')
+  }
+
+  private notify(event: string) {
+    this.emit(event, {
+      type: event,
       id: this.id,
-      input,
-      count,
+      input: this.input,
+      count: this.count,
     })
   }
 }
