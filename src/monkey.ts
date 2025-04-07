@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker'
 import { keyboard } from './config/keyboard'
 import { MonkeyEventEnum } from './enums/monkey-event.enum'
 
-export default class Monkey extends EventEmitter {
+export class Monkey extends EventEmitter {
   private readonly id: number
   private readonly text: string
   private count: number = 0

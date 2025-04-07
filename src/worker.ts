@@ -1,6 +1,6 @@
 import { parentPort, workerData } from 'node:worker_threads'
 
-import Monkey from './Monkey'
+import { Monkey } from './monkey'
 
 const { id, text } = workerData
 
