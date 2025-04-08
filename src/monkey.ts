@@ -25,7 +25,7 @@ export class Monkey extends EventEmitter {
       const character = faker.string.fromCharacters(keyboard)
       this.count += 1
 
-      if (this.count % 100000 === 0) {
+      if (this.count % 100 === 0) {
         this.notify(MonkeyEventEnum.PROGRESS)
       }
 
