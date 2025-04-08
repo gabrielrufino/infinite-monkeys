@@ -7,9 +7,12 @@ import { Worker } from 'node:worker_threads'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
 
-import WorkerListeners from './WorkerListeners'
+import { logger } from './config/logger'
+import { MonkeyEventEnum } from './enums/monkey-event.enum'
 
 async function main() {
+  process.title = 'monkeys'
+
   const args = yargs(hideBin(process.argv))
     .option('target', {
       type: 'string',
@@ -26,17 +29,22 @@ async function main() {
 
   const worker = path.join(__dirname, 'worker.cjs')
 
-  Array.from({ length: args.threads })
-    .map((_, index) => new Worker(worker, {
-      workerData: {
-        id: index + 1,
-        text: args.target,
-      },
-    }))
-    .forEach((monkey) => {
-      monkey.on('message', (event) => {
-        WorkerListeners[event.type](event)
+  const workers = Array.from({ length: args.threads })
+    .map((_, index) => {
+      return new Worker(worker, {
+        workerData: {
+          id: index + 1,
+          text: args.target,
+        },
       })
+        .on('message', async (event) => {
+          logger.info(event)
+
+          if (event.type === MonkeyEventEnum.MATCH) {
+            await Promise.all(workers.map(worker => worker.terminate()))
+            process.exit(0)
+          }
+        })
     })
 }
 
