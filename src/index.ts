@@ -43,7 +43,7 @@ async function main() {
         },
       })
         .on('message', async (event) => {
-          logger.info(event)
+          logger.info({ event })
 
           if (event.type === MonkeyEventEnum.MATCH) {
             await Promise.all(workers.map(worker => worker.terminate()))
