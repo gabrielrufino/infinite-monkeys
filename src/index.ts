@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import os from 'node:os'
 import path from 'node:path'
 import process from 'node:process'
 import { Worker } from 'node:worker_threads'
@@ -27,6 +28,10 @@ async function main() {
     .help()
     .parse()
 
+  if (args.threads > os.cpus().length) {
+    logger.warn('Number of threads exceeds number of CPU cores')
+  }
+
   const worker = path.join(__dirname, 'worker.cjs')
 
   const workers = Array.from({ length: args.threads })
@@ -38,7 +43,7 @@ async function main() {
         },
       })
         .on('message', async (event) => {
-          logger.info(event)
+          logger.info({ event })
 
           if (event.type === MonkeyEventEnum.MATCH) {
             await Promise.all(workers.map(worker => worker.terminate()))
