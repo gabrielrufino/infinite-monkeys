@@ -15,7 +15,7 @@ import { MonkeyEventEnum } from './enums/monkey-event.enum'
 async function main() {
   process.title = Object.keys(bin)[0]
 
-  const args = yargs(hideBin(process.argv))
+  const args = await yargs(hideBin(process.argv))
     .option('target', {
       type: 'string',
       description: 'Target text to type',
