@@ -19,7 +19,7 @@ async function main() {
     .option('target', {
       type: 'string',
       description: 'Target text to type',
-      demmandOption: true,
+      demandOption: true,
     })
     .option('threads', {
       type: 'number',
