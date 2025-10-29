@@ -1,7 +1,7 @@
 {
   "name": "@gabrielrufino/infinite-monkeys",
   "type": "module",
-  "version": "2.2.7",
+  "version": "2.2.8",
   "private": true,
   "author": "Gabriel Rufino",
   "license": "UNLICENSED",
@@ -20,17 +20,17 @@
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
-    "pino": "^9.9.4",
+    "pino": "^9.14.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.19.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@types/node": "^22.18.1",
-    "@types/yargs": "^17.0.33",
+    "@types/node": "^22.18.12",
+    "@types/yargs": "^17.0.34",
     "@vitest/coverage-v8": "^3.2.4",
-    "eslint": "^9.35.0",
+    "eslint": "^9.38.0",
     "husky": "^9.1.7",
     "tsup": "^8.5.0",
     "vitest": "^3.1.2"
