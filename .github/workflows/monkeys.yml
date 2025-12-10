@@ -10,11 +10,19 @@ on:
         description: Number of monkeys
         required: false
         default: '1'
+      runner:
+        description: Runner environment
+        required: true
+        type: choice
+        options:
+          - ubuntu-latest
+          - self-hosted
+        default: ubuntu-latest
 
 jobs:
   execute:
     name: Execute
-    runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runner }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
