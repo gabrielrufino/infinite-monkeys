@@ -1,6 +1,5 @@
 import EventEmitter from 'node:events'
 
-import { faker } from '@faker-js/faker'
 import { keyboard } from './config/keyboard'
 import { MonkeyEventEnum } from './enums/monkey-event.enum'
 
@@ -22,19 +21,19 @@ export class Monkey extends EventEmitter {
 
   public type() {
     while (!this.input.endsWith(this.text)) {
-      const character = faker.string.fromCharacters(keyboard)
+      const character = keyboard[Math.floor(Math.random() * keyboard.length)]
       this.count += 1
 
       if (this.count % 100 === 0) {
         this.notify(MonkeyEventEnum.PROGRESS)
       }
 
-      if (this.input.length > 100) {
+      if (this.input.length >= this.text.length) {
         this.input = this.input.slice(1) + character
-        continue
       }
-
-      this.input += character
+      else {
+        this.input += character
+      }
     }
 
     this.notify(MonkeyEventEnum.MATCH)

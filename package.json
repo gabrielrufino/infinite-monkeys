@@ -1,7 +1,7 @@
 {
   "name": "@gabrielrufino/infinite-monkeys",
   "type": "module",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "private": true,
   "author": "Gabriel Rufino",
   "license": "UNLICENSED",
@@ -10,7 +10,7 @@
     "monkeys": "dist/index.cjs"
   },
   "scripts": {
-    "build": "tsup src/index.ts src/worker.ts -d dist",
+    "build": "tsdown src/index.ts src/worker.ts --format cjs -d dist",
     "build:watch": "npm run build -- --watch",
     "lint": "eslint",
     "lint:fix": "npm run lint -- --fix",
@@ -19,7 +19,6 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@faker-js/faker": "^10.3.0",
     "pino": "^9.14.0",
     "yargs": "^17.7.2"
   },
@@ -27,12 +26,13 @@
     "@antfu/eslint-config": "^4.19.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@types/node": "^22.19.11",
+    "@faker-js/faker": "^10.4.0",
+    "@types/node": "^22.19.17",
     "@types/yargs": "^17.0.35",
     "@vitest/coverage-v8": "^3.2.4",
-    "eslint": "^9.39.2",
+    "eslint": "^9.39.4",
     "husky": "^9.1.7",
-    "tsup": "^8.5.1",
+    "tsdown": "^0.21.9",
     "vitest": "^3.1.2"
   }
 }
